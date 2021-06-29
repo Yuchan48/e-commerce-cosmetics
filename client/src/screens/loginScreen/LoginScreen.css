@@ -1,0 +1,125 @@
+.login_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f4f4f4;
+  background-image: radial-gradient(
+      rgba(247, 199, 236, 0.25) 30px,
+      transparent 30px
+    ),
+    radial-gradient(rgba(247, 199, 236, 0.25) 30px, transparent 30px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.login_form_box {
+  width: 60vw;
+  background-color: #f4f4f4;
+  max-width: 600px;
+  min-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: rgb(238, 88, 225) solid 1px;
+  font-size: 15px;
+}
+
+.login_box-title {
+  display: flex;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.login_box-title i {
+  margin-left: 1rem;
+  font-size: 35px;
+}
+
+.signin_loading_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.login_inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.login_inputs label {
+  font-weight: 600;
+}
+
+.login_inputs input {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  padding: 0.2rem;
+  border: #202020 solid 0.5px;
+}
+
+.login_form_button {
+  text-align: center;
+}
+
+.login_form_button button {
+  padding: 0.5rem 2rem;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #eef868;
+  box-shadow: 4px 4px 0 0 #79cfdf;
+  border: none;
+  cursor: pointer;
+}
+
+.login_form_button button:hover {
+  background-color: #f7bfc2;
+}
+
+.login_form_button button:active {
+  background-color: #be9496;
+}
+
+.login_register_link {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.login_register_link a {
+  color: rgb(243, 4, 243);
+}
+
+.login_register_link a:hover {
+  color: rgb(247, 104, 247);
+}
+
+@media (max-width: 46rem) {
+  .login_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .login_screen_container {
+    padding-top: 38px;
+  }
+
+  .login_form_box {
+    width: 90%;
+    min-width: 90%;
+  }
+}
+
+@media (max-width: 25rem) {
+  .login_screen_container {
+    padding-top: 79px;
+  }
+}

@@ -1,0 +1,118 @@
+.register_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f4f4f4;
+  background-image: radial-gradient(
+      rgba(247, 199, 236, 0.25) 30px,
+      transparent 30px
+    ),
+    radial-gradient(rgba(247, 199, 236, 0.25) 30px, transparent 30px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.register_form_box {
+  width: 60vw;
+  background-color: #f4f4f4;
+  max-width: 600px;
+  min-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: rgb(238, 88, 225) solid 1px;
+  font-size: 15px;
+}
+
+.register_box-title {
+  display: flex;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.register_box-title i {
+  margin-left: 1rem;
+  font-size: 35px;
+}
+
+.register_inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.register_inputs label {
+  font-weight: 600;
+}
+
+.register_inputs input {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  padding: 0.2rem;
+  border: #202020 solid 0.5px;
+}
+
+.register_form_button {
+  text-align: center;
+}
+
+.register_form_button button {
+  padding: 0.5rem 2rem;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #eef868;
+  box-shadow: 4px 4px 0 0 #79cfdf;
+  border: none;
+  cursor: pointer;
+}
+
+.register_form_button button:hover {
+  background-color: #f7bfc2;
+}
+
+.register_form_button button:active {
+  background-color: #be9496;
+}
+
+.register_login_link {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.register_login_link a {
+  color: rgb(243, 4, 243);
+}
+
+.register_login_link a:hover {
+  color: rgb(247, 104, 247);
+}
+
+@media (max-width: 46rem) {
+  .register_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .register_screen_container {
+    padding-top: 38px;
+  }
+
+  .register_form_box {
+    width: 90%;
+    min-width: 90%;
+  }
+}
+
+@media (max-width: 25rem) {
+  .register_screen_container {
+    padding-top: 85px;
+  }
+}

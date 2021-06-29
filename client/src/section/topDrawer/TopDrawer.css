@@ -1,0 +1,51 @@
+.topdrawer_container {
+  padding-top: 45px;
+  width: 100%;
+  height: auto;
+  background: rgb(178, 248, 250);
+  transform: translateY(-100%);
+  transition: all 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.topdrawer_container.show {
+  transform: translateY(0);
+}
+
+.top_drawer_links {
+  list-style: none;
+}
+
+.top_drawer_links li {
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem 1.5rem;
+}
+
+.top_drawer_links li:not(:last-child) {
+  border-bottom: 2px solid #f4f4f4;
+}
+
+.top_drawer_links li a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 15px;
+}
+
+@media (max-width: 36rem) {
+  .topdrawer_container {
+    padding-top: 38px;
+  }
+}
+
+@media (max-width: 25rem) {
+  .topdrawer_container {
+    padding-top: 74px;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,119 @@
+.allproduct_screen_container {
+  padding-top: 109px;
+  min-height: 90vh;
+}
+
+.allproduct_top {
+  width: 100%;
+  height: auto;
+  background: #a570fa;
+  background: -webkit-linear-gradient(to left, #a570fa, #82d3f8);
+  background: linear-gradient(to left, #a570fa, #82d3f8);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Montserrat", sans-serif;
+  color: #f4f4f4;
+}
+
+.allproduct_top img {
+  width: 30%;
+  padding: 2rem 0;
+}
+
+.allproduct_top_description {
+  width: 50%;
+}
+
+.allproduct_top_description h2 {
+  font-size: 50px;
+  margin-bottom: 1rem;
+}
+
+.allproduct_top_description p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.allproduct_bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.allproduct_bottom_cards_container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-items: center;
+  justify-content: space-between;
+  row-gap: 1rem;
+}
+
+@media (max-width: 56rem) {
+  .allproduct_top {
+    flex-direction: column;
+    background: -webkit-linear-gradient(to bottom, #a570fa, #82d3f8);
+    background: linear-gradient(to bottom, #a570fa, #82d3f8);
+  }
+
+  .allproduct_top img {
+    width: 60%;
+    padding: 1rem 0;
+  }
+
+  .allproduct_top_description {
+    width: 70%;
+    text-align: center;
+  }
+
+  .allproduct_top_description h2 {
+    font-size: 25px;
+    margin-bottom: 0.5rem;
+  }
+
+  .allproduct_top_description p {
+    margin-bottom: 1rem;
+  }
+
+  .allproduct_bottom_cards_container {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 46rem) {
+  .allproduct_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .allproduct_screen_container {
+    padding-top: 38px;
+  }
+
+  .allproduct_top_description {
+    width: 85%;
+  }
+  .allproduct_top img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 25rem) {
+  .allproduct_screen_container {
+    padding-top: 71px;
+  }
+
+  .allproduct_top img {
+    width: 70%;
+  }
+
+  .allproduct_top_description p {
+    font-size: 12px;
+  }
+}

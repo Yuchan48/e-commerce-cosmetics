@@ -1,0 +1,106 @@
+.payment_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+  width: 100%;
+  background-color: #f4f4f4;
+  background-image: radial-gradient(
+      rgba(247, 199, 236, 0.35) 30px,
+      transparent 30px
+    ),
+    radial-gradient(rgba(247, 199, 236, 0.35) 30px, transparent 30px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.payment_screen_bottom {
+  padding: 3rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment_form {
+  padding: 2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f4f4;
+}
+
+.payment_form h4 {
+  font-size: 20px;
+  margin: 1rem 0;
+}
+
+.payment_radio_box {
+  margin: 0.6rem;
+}
+
+.payment_radio {
+  font-size: 16px;
+  margin: 1.8rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.payment_radio input {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-right: 1rem;
+}
+
+.payment_radio img {
+  background: transparent;
+  width: 100px;
+  height: 30px;
+}
+
+.payment_button {
+  width: 100%;
+  text-align: center;
+}
+
+.payment_button button {
+  margin: 1rem 0;
+  padding: 0.5rem 2rem;
+  letter-spacing: 1px;
+  background-color: #fb637e;
+  color: #f4f4f4;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payment_button button:hover {
+  background-color: #fd4d6d;
+}
+
+.payment_button button:active {
+  background-color: #d1566c;
+}
+
+@media (max-width: 46rem) {
+  .payment_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .payment_screen_container {
+    padding-top: 38px;
+  }
+
+  .payment_form {
+    padding: 2rem 0;
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 25rem) {
+  .payment_screen_container {
+    padding-top: 79px;
+  }
+}

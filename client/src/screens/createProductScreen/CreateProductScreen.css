@@ -1,0 +1,168 @@
+.create_product_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+
+  background-color: #f4f4f4;
+  background-image: radial-gradient(
+      rgba(247, 199, 236, 0.25) 30px,
+      transparent 30px
+    ),
+    radial-gradient(rgba(247, 199, 236, 0.25) 30px, transparent 30px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.create_product_form_box {
+  margin: 1rem 0;
+  width: 90%;
+  max-width: 600px;
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+
+.create_product_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.create_product_title i {
+  font-size: 35px;
+  margin-left: 1.5rem;
+}
+
+.create_product_form_box input,
+.create_product_form_box textarea,
+.create_product_form_box select {
+  font-size: 15px;
+  padding: 0.3rem;
+  border: solid 1px #555555;
+}
+
+.create_product_form_box textarea {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.create_product_input_box label {
+  font-size: 15px;
+  margin: 1rem 0.5rem 0.2rem 0.3rem;
+}
+
+.create_product_input_box {
+  display: flex;
+  flex-direction: column;
+}
+
+.create_product_extra {
+  margin: 2.5rem 0;
+  display: flex;
+  align-items: center;
+}
+.create_product_extra label {
+  font-size: 15px;
+  margin-right: 0.5rem;
+}
+
+.create_product_checkbox {
+  position: relative;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.create_product_checkbox:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #555555;
+  border-radius: 4px;
+  background-color: #f4f4f4;
+}
+
+.create_product_checkbox:checked:after {
+  content: "";
+  display: block;
+  width: 13px;
+  height: 20px;
+  border: solid #fd08dc;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: -6px;
+  left: 6px;
+}
+
+.create_product_input_box img {
+  width: 120px;
+  height: 120px;
+  margin: 1rem 0 1rem 1rem;
+}
+
+.create_product_button {
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+}
+
+.create_product_button button {
+  padding: 0.5rem 2rem;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #eef868;
+  box-shadow: 4px 4px 0 0 #79cfdf;
+  border: none;
+  cursor: pointer;
+}
+
+.create_product_button button:hover {
+  background-color: #f7bfc2;
+}
+
+.create_product_button button:active {
+  background-color: #be9496;
+}
+
+.create_product_loading {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.create_product_error {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 46rem) {
+  .create_product_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .create_product_screen_container {
+    padding-top: 38px;
+  }
+}
+
+@media (max-width: 25rem) {
+  .create_product_screen_container {
+    padding-top: 79px;
+  }
+
+  .create_product_extra.create_small {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem 0;
+  }
+
+  .create_product_extra.create_small label {
+    margin: 0.3rem;
+  }
+}

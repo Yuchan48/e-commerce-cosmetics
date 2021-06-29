@@ -1,0 +1,81 @@
+.steps_order {
+  width: 95%;
+  max-width: 800px;
+  margin: 20px 0 10px 0;
+}
+
+.progressbar {
+  counter-reset: step;
+  font-size: 15px;
+}
+
+.progressbar li {
+  list-style-type: none;
+  float: left;
+  width: 25%;
+  position: relative;
+  text-align: center;
+  color: rgba(245, 46, 245, 0.6);
+  font-weight: 400;
+}
+
+.progressbar li a {
+  color: rgba(245, 46, 245, 0.6);
+  text-decoration: none;
+}
+
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid rgba(245, 46, 245, 0.3);
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+.progressbar li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(245, 46, 245, 0.3);
+  top: 15px;
+  left: -50%;
+  z-index: 1;
+}
+
+.progressbar li:first-child:after {
+  content: none;
+}
+
+.progressbar li.active {
+  color: rgb(245, 46, 245);
+  font-weight: 600;
+}
+
+.progressbar li.active a {
+  color: rgb(245, 46, 245);
+}
+
+.progressbar li.active:before {
+  border-color: rgb(245, 46, 245);
+  border-width: 2px;
+}
+
+.progressbar li.active + li:after {
+  background-color: rgb(245, 46, 245);
+  height: 2px;
+}
+
+@media (max-width: 36rem) {
+  .progressbar {
+    font-size: 13px;
+  }
+}

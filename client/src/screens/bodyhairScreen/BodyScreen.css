@@ -1,0 +1,119 @@
+.body_screen_container {
+  padding-top: 109px;
+  min-height: 90vh;
+}
+
+.body_top {
+  width: 100%;
+  height: auto;
+  background: #a570fa;
+  background: -webkit-linear-gradient(to left, #a570fa, #82d3f8);
+  background: linear-gradient(to left, #a570fa, #82d3f8);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Montserrat", sans-serif;
+  color: #f4f4f4;
+}
+
+.body_top img {
+  width: 30%;
+  padding: 2rem 0;
+}
+
+.body_top_description {
+  width: 50%;
+}
+
+.body_top_description h2 {
+  font-size: 50px;
+  margin-bottom: 1rem;
+}
+
+.body_top_description p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.body_bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.body_bottom_cards_container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-items: center;
+  justify-content: space-between;
+  row-gap: 1rem;
+}
+
+@media (max-width: 56rem) {
+  .body_top {
+    flex-direction: column;
+    background: -webkit-linear-gradient(to bottom, #a570fa, #82d3f8);
+    background: linear-gradient(to bottom, #a570fa, #82d3f8);
+  }
+
+  .body_top img {
+    width: 60%;
+    padding: 1rem 0;
+  }
+
+  .body_top_description {
+    width: 70%;
+    text-align: center;
+  }
+
+  .body_top_description h2 {
+    font-size: 25px;
+    margin-bottom: 0.5rem;
+  }
+
+  .body_top_description p {
+    margin-bottom: 1rem;
+  }
+
+  .body_bottom_cards_container {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 46rem) {
+  .body_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .body_screen_container {
+    padding-top: 38px;
+  }
+
+  .body_top_description {
+    width: 85%;
+  }
+  .body_top img {
+    width: 70%;
+  }
+}
+
+@media (max-width: 25rem) {
+  .body_screen_container {
+    padding-top: 71px;
+  }
+
+  .body_top img {
+    width: 70%;
+  }
+
+  .body_top_description p {
+    font-size: 12px;
+  }
+}

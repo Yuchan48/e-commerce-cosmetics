@@ -1,0 +1,333 @@
+.homeScreen {
+  padding-top: 115px;
+  width: 100vw;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow-x: hidden;
+  background-color: #f4f4f4;
+}
+.home_top {
+  width: 70%;
+  margin-top: 10px;
+  margin-right: 2rem;
+  height: calc(45vw * 0.75 + 3.5vh);
+  background: #fa8d57; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #fa8d57, #fdc830);
+  background: linear-gradient(to left, #fa8d57, #fdc830);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  animation: colorChange 15s ease infinite;
+}
+
+@keyframes colorChange {
+  0% {
+    background: #eb8450;
+  }
+  20%,
+  50% {
+    background: #81a5e9; /* fallback for old browsers */
+  }
+  70%,
+  100% {
+    background: #eb8450;
+  }
+}
+
+.home_top_text {
+  margin-right: 7vw;
+  width: 50%;
+}
+
+.home_top_text h2 {
+  color: #f4f4f4;
+  font-size: 50px;
+  margin-bottom: 3rem;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 1rem;
+}
+
+.home_top_text h2::before {
+  content: "Bright Idea";
+  animation: animateTitle 15s ease infinite;
+}
+
+@keyframes animateTitle {
+  0% {
+    content: "Bright Idea";
+  }
+  15%,
+  50% {
+    content: "Drench & Quench";
+  }
+  65%,
+  100% {
+    content: "Bright Idea";
+  }
+}
+
+.home_top_text p {
+  font-size: 25px;
+}
+
+.home_top_text p::before {
+  content: "Get bright, bouncy skin with clinical-grade vitamin C.";
+  animation: animateP 15s ease infinite;
+}
+
+@keyframes animateP {
+  0% {
+    content: "Get bright, bouncy skin with clinical-grade vitamin C.";
+  }
+  15%,
+  50% {
+    content: "Surge skin with 4 tipes of hyaluronic acid for all-day hydration.";
+  }
+  65%,
+  100% {
+    content: "Get bright, bouncy skin with clinical-grade vitamin C.";
+  }
+}
+
+.home_top_slider_img {
+  width: 45vw;
+  position: absolute;
+  left: 2rem;
+  top: 9rem;
+  overflow: hidden;
+}
+
+.home_images_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-animation: slideToLeft 8s ease infinite;
+  animation: slideToLeft 15s ease infinite;
+}
+
+.home_top img {
+  padding: 0.5px;
+  width: 45vw;
+  height: auto;
+  margin: 0;
+}
+
+@keyframes slideToLeft {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  50% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  60%,
+  100% {
+    -webkit-transform: translateX(-200%);
+    transform: translateX(-200%);
+  }
+}
+
+.home_middle {
+  margin-top: 1.5rem;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  background: #f78e95; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #f78e95, #d59cf1, #6ddbf3);
+  background: linear-gradient(to top, #f78e95, #d59cf1, #6ddbf3);
+}
+
+.home_middle_card {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home_middle img {
+  width: 40vw;
+  max-width: 400px;
+  z-index: 1;
+}
+
+.home_middle_discription {
+  width: 30vw;
+  max-width: 300px;
+  height: auto;
+  background-color: #f4f4f4;
+  z-index: 2;
+  margin-top: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home_middle_box_content {
+  width: 90%;
+  padding: 0.7rem 0;
+}
+
+.home_middle_box_content h4 {
+  text-align: center;
+  margin-bottom: 0.7rem;
+}
+
+.home_middle_box_content p {
+  font-size: 15px;
+  text-align: center;
+}
+
+.home_bestSeller {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: rgb(219, 236, 250);
+  padding-top: 1rem;
+}
+
+.home_bestSeller h3 {
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  color: #383838;
+}
+
+.home_slider_bestseller {
+  height: auto;
+  width: 80vw;
+  padding: 2rem 0;
+}
+
+.slick-slide.slick-active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 0.5rem;
+  padding: 0;
+}
+
+@media (max-width: 60rem) {
+  .home_top_text h2 {
+    font-size: 40px;
+  }
+
+  .home_top_text p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 50rem) {
+  .homeScreen {
+    justify-content: center;
+  }
+
+  .home_top {
+    width: 100%;
+    height: calc(80vw * 0.75);
+    margin-top: 90px;
+    margin-right: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home_top_slider_img {
+    position: static;
+    width: 80vw;
+    margin-top: -7rem;
+  }
+
+  .home_top img {
+    width: 80vw;
+  }
+
+  .home_top_text {
+    text-align: center;
+    width: 70%;
+  }
+
+  .home_top_text h2 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 25px;
+  }
+
+  .home_top_text p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 46rem) {
+  .homeScreen {
+    padding-top: 60px;
+  }
+
+  .home_middle {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .home_middle_card {
+    padding: 1rem 0;
+  }
+
+  .home_middle img {
+    width: 70vw;
+  }
+
+  .home_middle_discription {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 36rem) {
+  .homeScreen {
+    padding-top: 38px;
+  }
+
+  .home_top {
+    height: calc(80vw * 0.75);
+    margin-top: 110px;
+  }
+
+  .home_top_slider_img {
+    width: 80%;
+  }
+
+  .home_top img {
+    width: 100%;
+  }
+
+  .home_top_text {
+    width: 80%;
+  }
+
+  .home_middle img {
+    width: 85vw;
+  }
+
+  .home_middle_discription {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 25rem) {
+  .homeScreen {
+    padding-top: 74px;
+  }
+}

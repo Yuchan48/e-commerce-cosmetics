@@ -1,0 +1,110 @@
+.shipping_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  background-image: radial-gradient(
+      rgba(247, 199, 236, 0.35) 30px,
+      transparent 30px
+    ),
+    radial-gradient(rgba(247, 199, 236, 0.35) 30px, transparent 30px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.shipping_screen_top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(253, 250, 250, 0.6);
+}
+
+.shipping_screen_bottom {
+  padding: 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.shipping_form_box {
+  width: 80%;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 1rem 0;
+}
+
+.shipping_form_box h4 {
+  font-size: 25px;
+  margin-bottom: 1rem;
+}
+
+.shipping_inputs {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 0.6rem 2rem;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.shipping_inputs input {
+  margin-top: 0.2rem;
+  padding: 0.2rem 0.5rem;
+  border: #202020 solid 0.5px;
+  letter-spacing: 0.5px;
+}
+
+.shipping_button {
+  width: 100%;
+  text-align: center;
+}
+
+.shipping_button button {
+  margin: 1rem 0;
+  padding: 0.5rem 2rem;
+  letter-spacing: 1px;
+  background-color: #fb637e;
+  color: #f4f4f4;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.shipping_button button:hover {
+  background-color: #fd4d6d;
+}
+
+.shipping_button button:active {
+  background-color: #d1566c;
+}
+
+@media (max-width: 46rem) {
+  .shipping_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .shipping_screen_container {
+    padding-top: 38px;
+  }
+
+  .shipping_inputs {
+    width: 90%;
+  }
+}
+
+@media (max-width: 25rem) {
+  .shipping_screen_container {
+    padding-top: 79px;
+  }
+
+  .shipping_form_box {
+    width: 90%;
+  }
+}

@@ -1,0 +1,157 @@
+.edituser_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f4f4f4;
+  background-image: radial-gradient(
+      rgba(247, 199, 236, 0.25) 30px,
+      transparent 30px
+    ),
+    radial-gradient(rgba(247, 199, 236, 0.25) 30px, transparent 30px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.edituser_form_box {
+  width: 60vw;
+  background-color: #f4f4f4;
+  max-width: 600px;
+  min-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: rgb(238, 88, 225) solid 1px;
+  font-size: 15px;
+}
+
+.edituser_box-title {
+  display: flex;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.edituser_box-title i {
+  margin-left: 1rem;
+  font-size: 35px;
+}
+
+.edituser_form_box small {
+  text-align: center;
+  margin: 0 0.5rem 1rem 0.5rem;
+}
+
+.edituser_inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.edituser_inputs label {
+  font-weight: 600;
+}
+
+.edituser_inputs input {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  padding: 0.2rem;
+  border: #202020 solid 0.5px;
+}
+
+.edituser_form_button {
+  text-align: center;
+}
+
+.edituser_form_button button {
+  padding: 0.5rem 2rem;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #eef868;
+  box-shadow: 4px 4px 0 0 #79cfdf;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.edituser_form_button button:hover {
+  background-color: #f7bfc2;
+}
+
+.edituser_form_button button:active {
+  background-color: #be9496;
+}
+
+.edituser_form_button i {
+  margin-left: 0.2rem;
+}
+
+.edituser_extra {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+}
+.edituser_extra label {
+  font-size: 15px;
+  margin-right: 1.5rem;
+}
+
+.edituser_checkbox {
+  position: relative;
+  cursor: pointer;
+}
+
+.edituser_checkbox:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #555555;
+  border-radius: 4px;
+  background-color: #f4f4f4;
+}
+
+.edituser_checkbox:checked:after {
+  content: "";
+  display: block;
+  width: 13px;
+  height: 20px;
+  border: solid #fd08dc;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 0;
+  left: 6px;
+}
+
+@media (max-width: 46rem) {
+  .edituser_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .edituser_screen_container {
+    padding-top: 38px;
+  }
+
+  .edituser_form_box {
+    width: 90%;
+    min-width: 90%;
+  }
+}
+
+@media (max-width: 25rem) {
+  .edituser_screen_container {
+    padding-top: 85px;
+  }
+}

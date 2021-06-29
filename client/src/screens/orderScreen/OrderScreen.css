@@ -1,0 +1,110 @@
+.order_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+}
+
+.order_screen_delivered_button {
+  text-align: end;
+  margin-bottom: 0.5rem;
+}
+
+.order_screen_delivered_button button {
+  font-size: 15px;
+  padding: 0.4rem 1.2rem;
+  background-color: #eef868;
+  box-shadow: 4px 4px 0 0 #79cfdf;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.order_screen_delivered_button button:hover {
+  background-color: #f7bfc2;
+}
+
+.order_screen_delivered_button button:active {
+  background-color: #be9496;
+}
+
+.order_screen_loading_deliver {
+  text-align: end;
+}
+
+.order_shipping_title,
+.order_payment_title {
+  border-bottom: 1px solid #000000;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order_shipping_title p,
+.order_payment_title p {
+  color: #ff0000;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.order_paid_success br,
+.order_deliver_success br {
+  display: none;
+}
+
+.order_bottom_button_box {
+  margin: 1rem;
+}
+
+.stripe_pay_button_box {
+  text-align: center;
+}
+
+.stripe_pay_button_box button {
+  width: 90%;
+  padding: 0.6rem 0;
+  margin: 0.5rem 0;
+  background-color: #fb637e;
+  color: #f4f4f4;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.stripe_pay_button_box button:hover {
+  background-color: #fd4d6d;
+}
+
+.stripe_pay_button_box button:active {
+  background-color: #d1566c;
+}
+
+@media (max-width: 46rem) {
+  .order_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .order_screen_container {
+    padding-top: 38px;
+  }
+}
+
+@media (max-width: 25rem) {
+  .order_screen_container {
+    padding-top: 79px;
+  }
+
+  .order_paid_success br,
+  .order_deliver_success br {
+    display: block;
+  }
+
+  .order_shipping_title p,
+  .order_shipping_title,
+  .order_payment_title p,
+  .order_payment_title {
+    font-size: 13px;
+  }
+}

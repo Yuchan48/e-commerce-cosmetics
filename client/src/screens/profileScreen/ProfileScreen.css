@@ -1,0 +1,131 @@
+.profile_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f4f4f4;
+  background-image: radial-gradient(
+      rgba(247, 199, 236, 0.25) 30px,
+      transparent 30px
+    ),
+    radial-gradient(rgba(247, 199, 236, 0.25) 30px, transparent 30px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.profile_form_box {
+  width: 60vw;
+  background-color: #f4f4f4;
+  max-width: 600px;
+  min-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: rgb(238, 88, 225) solid 1px;
+  font-size: 15px;
+}
+
+.profile_box-title {
+  display: flex;
+  font-size: 25px;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.profile_box-title i {
+  margin-left: 1rem;
+  font-size: 35px;
+}
+
+.profile_form_box small {
+  text-align: center;
+  margin: 0 0.5rem 1rem 0.5rem;
+}
+
+.profile_inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.profile_inputs label {
+  font-weight: 600;
+}
+
+.profile_inputs input {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  padding: 0.2rem;
+  border: #202020 solid 0.5px;
+}
+
+.profile_inputs hr {
+  margin-bottom: 1rem;
+  height: 2px;
+  border: 0;
+  background-color: rgba(238, 88, 225, 0.5);
+}
+
+.profile_form_button {
+  text-align: center;
+}
+
+.profile_form_button button {
+  padding: 0.5rem 2rem;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #eef868;
+  box-shadow: 4px 4px 0 0 #79cfdf;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+.profile_form_button button:hover {
+  background-color: #f7bfc2;
+}
+
+.profile_form_button button:active {
+  background-color: #be9496;
+}
+
+.profile_login_link {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.profile_login_link a {
+  color: rgb(243, 4, 243);
+}
+
+.profile_login_link a:hover {
+  color: rgb(247, 104, 247);
+}
+
+@media (max-width: 46rem) {
+  .profile_screen_container {
+    padding-top: 44px;
+  }
+}
+
+@media (max-width: 36rem) {
+  .profile_screen_container {
+    padding-top: 38px;
+  }
+
+  .profile_form_box {
+    width: 90%;
+    min-width: 90%;
+  }
+}
+
+@media (max-width: 25rem) {
+  .profile_screen_container {
+    padding-top: 85px;
+  }
+}

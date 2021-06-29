@@ -1,0 +1,115 @@
+.order_history_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #f4f4f4;
+  background-image: radial-gradient(
+      rgba(247, 199, 236, 0.25) 30px,
+      transparent 30px
+    ),
+    radial-gradient(rgba(247, 199, 236, 0.25) 30px, transparent 30px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.order_history_Bottom {
+  max-width: 95%;
+}
+
+.order_history_Bottom h3 {
+  margin: 0 0 1rem 1rem;
+  padding-top: 1rem;
+}
+
+.order_history_table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  font-size: 15px;
+  background-color: #f4f4f4;
+}
+
+.order_history_table tbody tr:nth-of-type(odd) {
+  background-color: #fcd1fc;
+}
+
+.order_history_table td,
+.order_history_table th {
+  text-align: center;
+  border: 0.1rem solid #dab6ce;
+  padding: 1rem 1rem;
+}
+
+.order_history_table th {
+  font-weight: 600;
+}
+
+.order_history_table_id {
+  font-weight: 600;
+}
+
+.order_history_table td a {
+  text-decoration: none;
+  font-weight: 600;
+  color: rgb(211, 6, 211);
+}
+
+.order_history_table td a:hover {
+  color: rgb(252, 32, 252);
+}
+
+@media (max-width: 50rem) {
+  .order_history_table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 46rem) {
+  .order_history_screen_container {
+    padding-top: 44px;
+  }
+
+  .order_history_table {
+    font-size: 13px;
+  }
+
+  .order_history_table td,
+  .order_history_table th {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 36rem) {
+  .order_history_screen_container {
+    padding-top: 38px;
+  }
+
+  .order_history_table {
+    font-size: 12px;
+  }
+
+  .order_history_table td,
+  .order_history_table th {
+    padding: 1rem 0.1rem;
+  }
+
+  .order_history_table td p {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 25rem) {
+  .order_history_screen_container {
+    padding-top: 79px;
+  }
+
+  .order_history_table td p {
+    max-width: 70px;
+  }
+}

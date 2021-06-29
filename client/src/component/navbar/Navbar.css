@@ -1,0 +1,269 @@
+.navbar {
+  position: fixed;
+  width: 100vw;
+  height: auto;
+  background-color: #79cfdf;
+  display: flex;
+  justify-content: center;
+  z-index: 5000;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar_middle_section {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.navbar_logo {
+  margin: 1.2rem 0;
+  color: #f4f4f4;
+  font-size: 2.4rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar_screen_links a {
+  text-decoration: none;
+  margin: 0.2rem 1.5rem;
+  font-size: 15px;
+  color: #f4f4f4;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.navbar_screen_links a:hover {
+  color: #eef868;
+}
+
+.navbar_links {
+  list-style: none;
+  text-align: end;
+  position: absolute;
+  right: 1.8rem;
+  top: 0.6rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar_links > li {
+  margin-left: 0.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar_links > li > a {
+  text-decoration: none;
+  color: #f4f4f4;
+  font-size: 0.9rem;
+}
+
+.nav_link {
+  display: flex;
+  align-items: center;
+  color: #f4f4f4;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+}
+
+.nav_link:hover {
+  background: #5cbecf;
+  color: #f4f4f4;
+}
+
+.cartlogo_badge {
+  margin-top: -0.7rem;
+  margin-right: -0.2rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fc0707;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+.nav_link i {
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+  z-index: 900;
+  color: #f4f4f4;
+}
+
+.nav_icon_down {
+  margin-right: 0;
+}
+
+.hamburger_menu {
+  width: 30px;
+  height: 25px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+}
+
+.hamburger_menu > div {
+  background: #f4f4f4;
+  width: 100%;
+  margin: 0;
+  height: 3px;
+  border-radius: 5px;
+}
+
+.hamburger_menu:hover > div {
+  background: #eef868;
+}
+
+.nav_dropdown {
+  display: block;
+}
+
+.nav_dropdown_content {
+  position: absolute;
+  text-align: start;
+  min-width: 110px;
+  right: 0.2rem;
+  background-color: #6dd9ec;
+  border: solid 1px #f4f4f4;
+  display: none;
+}
+
+.nav_dropdown:hover .nav_dropdown_content {
+  display: block;
+}
+
+.nav_dropdown_content li {
+  list-style: none;
+  padding: 0.6rem 0.7rem;
+}
+
+.nav_dropdown_content li:not(:last-child) {
+  border-bottom: solid 1px #f4f4f4;
+}
+
+.nav_dropdown_content li a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #f4f4f4;
+}
+
+.nav_dropdown_content li a:hover {
+  color: #eef868;
+}
+
+@media (max-width: 46rem) {
+  .navbar_middle_section {
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+
+  .navbar_screen_links {
+    display: none;
+  }
+
+  .navbar_logo {
+    margin: 0.5rem 0;
+    font-size: 1.6rem;
+  }
+
+  .hamburger_menu {
+    display: flex;
+    height: 25px;
+  }
+}
+
+@media (max-width: 40rem) {
+  .nav_link {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.3rem;
+    margin-right: 0.3rem;
+    font-weight: 600;
+  }
+
+  .nav_link span {
+    font-size: 0.8rem;
+  }
+
+  .navbar_links > li > a {
+    font-size: 0.8rem;
+  }
+
+  .nav_link i {
+    font-size: 0.9rem;
+  }
+
+  .cartlogo_badge {
+    width: 1.05rem;
+    height: 1.05rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 36rem) {
+  .navbar_links {
+    right: 0.8rem;
+  }
+
+  .navbar_logo h4 {
+    font-size: 1.2rem;
+  }
+
+  .navbar_links > li {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 30rem) {
+  .navbar {
+    justify-content: flex-start;
+  }
+
+  .hamburger_menu {
+    position: static;
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 25rem) {
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .navbar_middle_section {
+    margin-top: 0.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar_logo {
+    width: 100vw;
+    text-align: center;
+  }
+
+  .navbar_links > li {
+    margin-left: 0;
+  }
+
+  .navbar_links > li > a {
+    font-size: 0.8rem;
+  }
+
+  .hamburger_menu {
+    position: static;
+    margin-left: 0.7rem;
+    width: 30px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,199 @@
+.userlist_screen_container {
+  padding-top: 115px;
+  min-height: 90vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+
+  background-color: #f4f4f4;
+  background-image: radial-gradient(
+      rgba(247, 199, 236, 0.25) 30px,
+      transparent 30px
+    ),
+    radial-gradient(rgba(247, 199, 236, 0.25) 30px, transparent 30px);
+  background-size: 100px 100px;
+  background-position: 0 0, 50px 50px;
+}
+
+.userlist_Bottom {
+  max-width: 90%;
+}
+
+.userlist_title {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  margin-right: 0.2rem;
+}
+
+.userlist_loading_div {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.userlist_error_message {
+  margin-bottom: 1rem;
+}
+.userlist_table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  font-size: 15px;
+  background-color: #f4f4f4;
+}
+
+.userlist_table tbody tr:nth-of-type(odd) {
+  background-color: #fcd1fc;
+}
+
+.userlist_table td,
+.userlist_table th {
+  text-align: center;
+  border: 0.1rem solid #dab6ce;
+  padding: 1rem 0.8rem;
+}
+
+.userlist_table th {
+  font-weight: 600;
+}
+
+.userlist_table td p {
+  font-weight: 600;
+}
+
+.userlist_table_button button {
+  font-size: 15px;
+  width: 70px;
+  padding: 0.2rem 0;
+  margin: 0.2rem;
+  background-color: #fb637e;
+  color: #f4f4f4;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.userlist_table_button button:hover {
+  background-color: #fd4d6d;
+}
+
+.userlist_table_button button:active {
+  background-color: #d1566c;
+}
+
+@media (max-width: 50rem) {
+  .userlist_table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 46rem) {
+  .userlist_screen_container {
+    padding-top: 44px;
+  }
+
+  .userlist_table {
+    font-size: 13px;
+  }
+
+  .userlist_table td,
+  .userlist_table th {
+    padding: 1rem 0.1rem;
+  }
+
+  .userlist_table_button {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 40rem) {
+  .userlist_table td p {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .userlist_username {
+    max-width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .userlist_email {
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .userlist_table_button button {
+    font-size: 12px;
+    width: 50px;
+    padding: 0.3rem 0;
+    margin: 0.2rem 0.1rem;
+  }
+}
+
+@media (max-width: 36rem) {
+  .userlist_screen_container {
+    padding-top: 38px;
+  }
+
+  .userlist_table {
+    font-size: 12px;
+  }
+
+  .userlist_table td,
+  .userlist_table th {
+    padding: 1rem 0.1rem;
+  }
+}
+
+@media (max-width: 25rem) {
+  .userlist_screen_container {
+    padding-top: 85px;
+  }
+  .userlist_Bottom {
+    width: 95%;
+  }
+
+  .userlist_table th {
+    font-size: 12px;
+  }
+
+  .userlist_title {
+    margin-left: 0.2rem;
+  }
+
+  .userlist_table td p {
+    max-width: 60px;
+  }
+
+  .userlist_username {
+    max-width: 60px;
+  }
+
+  .userlist_email {
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 21rem) {
+  .userlist_table td p {
+    max-width: 30px;
+  }
+
+  .userlist_table_button button {
+    font-size: 11px;
+    width: 45px;
+    padding: 0.3rem 0;
+    margin: 0.2rem 0.1rem;
+  }
+}
