@@ -69,6 +69,7 @@ function RegisterScreen(props) {
             type="name"
             id="name"
             placeholder="your name"
+            value={name}
             onChange={(e) => setName(capitalize(e.target.value))}
             required
           />
@@ -77,6 +78,7 @@ function RegisterScreen(props) {
             type="email"
             id="email"
             placeholder="email address"
+            value={email}
             onChange={(e) => setEmail(e.target.value.toLowerCase())}
             required
           />

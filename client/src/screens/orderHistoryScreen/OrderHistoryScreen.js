@@ -24,7 +24,7 @@ function OrderHistoryScreen() {
           <LoadingBox />
         ) : error ? (
           <ErrorMessage>{error}</ErrorMessage>
-        ) : (
+        ) : orders.length === 0 ? <div className="order_history_empty">You don't have any order with us.</div> : (
           <table className="order_history_table">
             <thead>
               <tr>

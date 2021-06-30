@@ -24,6 +24,14 @@
   padding-top: 1rem;
 }
 
+.order_history_empty {
+  height: 60vh;
+  width: 80vw;
+  max-width: 700px;
+  font-size: 20px;
+  color: #da0545;
+}
+
 .order_history_table {
   width: 100%;
   height: auto;
