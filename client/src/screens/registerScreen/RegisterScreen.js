@@ -107,7 +107,7 @@ function RegisterScreen(props) {
 
         <div className="register_login_link">
           <p>Already have an account? &nbsp;</p>
-          <Link to={`/login/?redirect=${urlParam}`}>Sign in</Link>
+          <Link to={`/login?redirect=${urlParam}`}>Sign in</Link>
         </div>
       </form>
     </div>
