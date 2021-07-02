@@ -93,7 +93,7 @@ router.delete("/:id", isAuth, isAdmin, async (req, res) => {
   }
 });
 
-router.put("/profile", isAuth, async (req, res) => {
+router.put("/profile/update", isAuth, async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
     if (bcrypt.compareSync(req.body.password, user.password)) {
