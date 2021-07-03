@@ -9,19 +9,20 @@ ___
 
 2. Admin manages and controls the entire store components including view/edit/delete/create orders, users, products.
 
-##### place order screen 
+##### Place order screen 
+
 ![cart image](https://i.imgur.com/CE316oWm.jpg)
 ___
 
 #### Features
 
-- secure signin with Authentication with jasonwebtoken
-- password hashed with bcrypt
-- payment with paypal and stripe
-- send order receipt after placing order and successful payment
-- signin info, cart items, shipping address etc. will remain for 30days in the localstorage
-- when signed in, you can view order histories, view and edit user profile.
-- when signed in as an Admin, you can view, edit, delete list of all the users/orders/products as well create products.
+- Secure signin with Authentication with jasonwebtoken
+- Password hashed with bcrypt
+- Payment with paypal and stripe
+- Send order receipt after placing an order and successful payment
+- Signin info, cart items, shipping address etc. will remain for 30days in the localstorage
+- When signed in, you can view order histories, and edit user profile
+- When signed in as an Admin, you can view, edit, delete list of all the users/orders/products as well create products.
 
 ___
 
