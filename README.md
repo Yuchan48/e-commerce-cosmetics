@@ -1,6 +1,8 @@
 # E-Commerce Website
 
 Shopping website created with React.js, Node.js, Redux and MongoDB. 
+
+### Preview : https://yuchan-ecommerce.herokuapp.com/
 ___
 
 #### This e-commerce enables 2 main different implementations:
