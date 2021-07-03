@@ -31,7 +31,7 @@ function UserListScreen(props) {
   const deleteHandler = (user) => {
     if (user.isAdmin) {
       alert("You can't delete admin user");
-    } else if (window.confirm(`Are you sure to delete order ID ${user._id}?`)) {
+    } else if (window.confirm(`Are you sure to delete ${user.name}?`)) {
       dispatch(deleteUser(user._id));
     }
   };
