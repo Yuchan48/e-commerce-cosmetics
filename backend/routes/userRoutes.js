@@ -52,7 +52,7 @@ router.post("/register", async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(401).json({ message: "data fetching error" });
+    res.status(401).json({ message: "There's already an account with this email address" });
   }
 });
 
