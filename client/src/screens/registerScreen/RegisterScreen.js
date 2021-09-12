@@ -12,7 +12,6 @@ function RegisterScreen(props) {
     ? props.location.search.split("=")[1]
     : "/";
 
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,11 +23,12 @@ function RegisterScreen(props) {
   const onChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: (e.target.name === "name")
-        ? capitalize(e.target.value)
-        : (e.target.name === "email")
-        ? e.target.value.toLowerCase()
-        : e.target.value,
+      [e.target.name]:
+        e.target.name === "name"
+          ? capitalize(e.target.value)
+          : e.target.name === "email"
+          ? e.target.value.toLowerCase()
+          : e.target.value,
     });
   };
 
@@ -41,15 +41,13 @@ function RegisterScreen(props) {
     e.preventDefault();
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const nameRegex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/g;
-    if (password !== confirmPassword) {
-      alert("password and confirm password does not match");
-    } else if (!name.match(nameRegex)) {
-      alert("invalid name field");
-    } else if (!email.match(emailRegex)) {
-      alert("invalid email address");
-    } else {
-      dispatch(registerUser(formData));
-    }
+    password !== confirmPassword
+      ? alert("password and confirm password does not match")
+      : !name.match(nameRegex)
+      ? alert("invalid name field")
+      : !email.match(emailRegex)
+      ? alert("invalid email address")
+      : dispatch(registerUser(formData));
   };
 
   useEffect(() => {
@@ -91,7 +89,7 @@ function RegisterScreen(props) {
           />
           <label htmlFor="email">Email Address</label>
           <input
-            type="text"
+            type="email"
             name="email"
             placeholder="Email Address"
             value={email}

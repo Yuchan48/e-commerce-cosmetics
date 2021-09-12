@@ -62,7 +62,7 @@ function LoginScreen(props) {
         <div className="login_inputs">
           <label htmlFor="email">Email Address</label>
           <input
-            type="text"
+            type="email"
             name="email"
             value={email}
             placeholder="email address"

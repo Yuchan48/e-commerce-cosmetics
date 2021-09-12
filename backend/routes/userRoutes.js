@@ -101,7 +101,7 @@ router.delete("/:id", isAuth, isAdmin, async (req, res) => {
 router.put("/profile/update", isAuth, async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
-    console.log("req.body: ", req.body)
+    
     const { name, email, password, newpassword } = req.body;
     if (bcrypt.compareSync(password, user.password)) {
       user.name = name || user.name;
