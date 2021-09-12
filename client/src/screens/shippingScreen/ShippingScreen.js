@@ -14,11 +14,15 @@ function ShippingScreen(props) {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
 
-  const [fullName, setFullName] = useState(shippingAddress.fullName);
-  const [address, setAddress] = useState(shippingAddress.address);
-  const [city, setCity] = useState(shippingAddress.city);
-  const [postcode, setPostcode] = useState(shippingAddress.postcode);
-  const [country, setCountry] = useState(shippingAddress.country);
+  const [shippingInfo, setShippingInfo] = useState({
+    fullName: shippingAddress.fullName,
+    address: shippingAddress.address,
+    city: shippingAddress.city,
+    postcode: shippingAddress.postcode,
+    country: shippingAddress.country,
+  });
+
+  const { fullName, address, city, postcode, country } = shippingInfo;
 
   const dispatch = useDispatch();
 
@@ -29,10 +33,22 @@ function ShippingScreen(props) {
       alert("invalid name field");
     } else {
       dispatch(
-        saveShippingAddress({ fullName, address, city, postcode, country })
+        saveShippingAddress(shippingInfo)
       );
       props.history.push("/payment");
     }
+  };
+
+  const onChange = (e) => {
+    setShippingInfo({
+      ...shippingInfo,
+      [e.target.name]:
+        e.target.name === "fullName" || e.target.name === "city"
+          ? capitalize(e.target.value)
+          : e.target.name === "postcode"
+          ? e.target.value.toUpperCase()
+          : e.target.value,
+    });
   };
 
   const capitalize = (str) => {
@@ -55,9 +71,9 @@ function ShippingScreen(props) {
             <label htmlFor="fullName">Full Name</label>
             <input
               type="text"
-              id="fullName"
+              name="fullName"
               value={fullName}
-              onChange={(e) => setFullName(capitalize(e.target.value))}
+              onChange={onChange}
               placeholder="Full Name"
               required
             />
@@ -67,9 +83,9 @@ function ShippingScreen(props) {
             <label htmlFor="address">Address</label>
             <input
               type="text"
-              id="address"
+              name="address"
               value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={onChange}
               placeholder="Address"
               required
             />
@@ -79,9 +95,9 @@ function ShippingScreen(props) {
             <label htmlFor="city">City</label>
             <input
               type="text"
-              id="city"
+              name="city"
               value={city}
-              onChange={(e) => setCity(capitalize(e.target.value))}
+              onChange={onChange}
               placeholder="City"
               required
             />
@@ -91,10 +107,10 @@ function ShippingScreen(props) {
             <label htmlFor="postcode">Postal Code</label>
             <input
               type="text"
-              id="postcode"
+              name="postcode"
               placeholder="Postal Code"
               value={postcode}
-              onChange={(e) => setPostcode(e.target.value.toUpperCase())}
+              onChange={onChange}
               required
             />
           </div>
@@ -103,9 +119,9 @@ function ShippingScreen(props) {
             <label htmlFor="country">Country</label>
             <input
               type="text"
-              id="country"
+              name="country"
               value={country}
-              onChange={(e) => setCountry(e.target.value)}
+              onChange={onChange}
               placeholder="Country"
               required
             />

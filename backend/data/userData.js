@@ -1,4 +1,5 @@
-const bcrypt = require("bcrypt");
+// this file was used only until I set up connection with mongoDB
+/* const bcrypt = require("bcrypt");
 
 const userData = [
   {
@@ -22,3 +23,4 @@ const userData = [
 ];
 
 module.exports = userData;
+ */

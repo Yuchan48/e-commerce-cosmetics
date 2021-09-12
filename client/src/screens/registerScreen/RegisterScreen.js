@@ -12,15 +12,31 @@ function RegisterScreen(props) {
     ? props.location.search.split("=")[1]
     : "/";
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [name, setName] = useState("");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const { name, email, password, confirmPassword } = formData;
+
+  const onChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: (e.target.name === "name")
+        ? capitalize(e.target.value)
+        : (e.target.name === "email")
+        ? e.target.value.toLowerCase()
+        : e.target.value,
+    });
+  };
 
   const userRegister = useSelector((state) => state.userRegister);
   const { userInfo, loading, error } = userRegister;
 
   const dispatch = useDispatch();
+
   const submitHandler = (e) => {
     e.preventDefault();
     const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -32,7 +48,7 @@ function RegisterScreen(props) {
     } else if (!email.match(emailRegex)) {
       alert("invalid email address");
     } else {
-      dispatch(registerUser(name, email, password));
+      dispatch(registerUser(formData));
     }
   };
 
@@ -66,38 +82,40 @@ function RegisterScreen(props) {
         <div className="register_inputs">
           <label htmlFor="name">Your Name</label>
           <input
-            type="name"
-            id="name"
-            placeholder="your name"
+            type="text"
+            name="name"
+            placeholder="Your name"
             value={name}
-            onChange={(e) => setName(capitalize(e.target.value))}
+            onChange={onChange}
             required
           />
           <label htmlFor="email">Email Address</label>
           <input
-            type="email"
-            id="email"
-            placeholder="email address"
+            type="text"
+            name="email"
+            placeholder="Email Address"
             value={email}
-            onChange={(e) => setEmail(e.target.value.toLowerCase())}
+            onChange={onChange}
             required
           />
           <label htmlFor="password">Password</label>
           <input
             type="password"
-            id="password"
-            placeholder="password"
+            name="password"
+            placeholder="Password"
             autoComplete="off"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={onChange}
+            value={password}
             required
           />
           <label htmlFor="confirm-password">Confirm Password</label>
           <input
             type="password"
-            id="confirm-password"
+            name="confirmPassword"
             placeholder="confirm password"
             autoComplete="off"
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={onChange}
+            value={confirmPassword}
             required
           />
         </div>

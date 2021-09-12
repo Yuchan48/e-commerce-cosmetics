@@ -18,6 +18,7 @@ function BodyScreen() {
   useEffect(() => {
     dispatch(categoryProducts("body & hair"));
   }, [dispatch]);
+
   return (
     <div className="body_screen_container">
       <div className="body_top">

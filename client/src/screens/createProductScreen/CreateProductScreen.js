@@ -8,14 +8,27 @@ import LoadingBox from "../../component/loadingBox/LoadingBox";
 import ErrorMessage from "../../component/errorMessage/ErrorMessage";
 
 function CreateProductScreen(props) {
-  const [name, setName] = useState("");
-  const [subTitle, setSubTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [bestSeller, setBestSeller] = useState(false);
-  const [price, setPrice] = useState(0);
-  const [countInStock, setCountInStock] = useState(0);
-  const [imageUrl, setImageUrl] = useState("");
+  const [productInfo, setProductInfo] = useState({
+    name: "",
+    subTitle: "",
+    description: "",
+    category: "",
+    bestSeller: false,
+    price: 0,
+    countInStock: 0,
+    imageUrl: "",
+  });
+
+  const {
+    name,
+    subTitle,
+    description,
+    category,
+    bestSeller,
+    price,
+    countInStock,
+    imageUrl,
+  } = productInfo;
 
   const productCreate = useSelector((state) => state.productCreate);
   const { loading, success, product, error } = productCreate;
@@ -37,27 +50,25 @@ function CreateProductScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    typeof Number(price) !== "number"
+      ? alert("invalid price")
+      : countInStock < 0 || typeof Number(countInStock) !== "number"
+      ? alert("product count must be more than 0")
+      : category.length === 0
+      ? alert("please select category")
+      : dispatch(createProduct(productInfo));
+  };
 
-    if (typeof Number(price) !== "number") {
-      alert("invalid price");
-    } else if (countInStock < 0 || typeof Number(countInStock) !== "number") {
-      alert("product count must be more than 0");
-    } else if (category.length === 0) {
-      alert("please select category");
-    } else {
-      dispatch(
-        createProduct({
-          name,
-          subTitle,
-          description,
-          price,
-          countInStock,
-          category,
-          bestSeller,
-          imageUrl,
-        })
-      );
-    }
+  const onChange = (e) => {
+    setProductInfo({
+      ...productInfo,
+      [e.target.name]:
+        e.target.name === "name"
+          ? capitalize(e.target.value)
+          : e.target.name === "bestSeller"
+          ? !bestSeller
+          : e.target.value,
+    });
   };
 
   return (
@@ -73,10 +84,10 @@ function CreateProductScreen(props) {
             <label htmlFor="name">Product Name *</label>
             <input
               type="text"
-              id="name"
+              name="name"
               maxLength="20"
               value={name}
-              onChange={(e) => setName(capitalize(e.target.value))}
+              onChange={onChange}
               placeholder="Product Name"
               required
             />
@@ -85,9 +96,10 @@ function CreateProductScreen(props) {
             <label htmlFor="subTitle">Subtitle *</label>
             <input
               type="text"
-              id="subTitle"
+              name="subTitle"
+              value={subTitle}
               maxLength="40"
-              onChange={(e) => setSubTitle(e.target.value)}
+              onChange={onChange}
               placeholder="Subtitle"
               required
             />
@@ -96,11 +108,12 @@ function CreateProductScreen(props) {
             <label htmlFor="description">Description *</label>
             <textarea
               type="text"
-              id="description"
+              name="description"
               maxLength="300"
+              value={description}
               placeholder="Description"
               rows="3"
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={onChange}
               required
             />
           </div>
@@ -111,9 +124,9 @@ function CreateProductScreen(props) {
             <label htmlFor="price">Price ($) *</label>
             <input
               type="text"
-              id="price"
+              name="price"
               placeholder="Price"
-              onChange={(e) => setPrice(e.target.value)}
+              onChange={onChange}
               required
             />
           </div>
@@ -121,22 +134,17 @@ function CreateProductScreen(props) {
             <label htmlFor="countInStock">Product Count *</label>
             <input
               type="number"
-              id="countInStock"
+              name="countInStock"
               placeholder="Product Count"
               min="0"
-              onChange={(e) => setCountInStock(e.target.value)}
+              onChange={onChange}
               required
             />
           </div>
 
           <div className="create_product_extra create_small">
             <label htmlFor="category">Category *</label>
-            <select
-              name="category"
-              id="category"
-              onChange={(e) => setCategory(e.target.value)}
-              required
-            >
+            <select name="category" id="category" onChange={onChange} required>
               <option defaultValue="">Choose Category</option>
               <option value="skin care">Skin Care</option>
               <option value="body & hair">Body & Hair</option>
@@ -147,17 +155,19 @@ function CreateProductScreen(props) {
             <input
               type="checkbox"
               id="bestSeller"
+              name="bestSeller"
               className="create_product_checkbox"
-              onChange={() => setBestSeller(!bestSeller)}
+              onChange={onChange}
             />
           </div>
           <div className="create_product_input_box">
             <label htmlFor="imageUrl">Product Image (.jpg) *</label>
             <input
               type="text"
-              id="imageUrl"
+              name="imageUrl"
               placeholder="Link to the product image"
-              onChange={(e) => setImageUrl(e.target.value)}
+              value={imageUrl}
+              onChange={onChange}
               required
             />
             {imageUrl && <img src={imageUrl} alt="img" />}

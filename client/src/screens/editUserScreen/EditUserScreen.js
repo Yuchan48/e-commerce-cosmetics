@@ -9,11 +9,15 @@ import { detailsUser, editUser } from "../../redux/actions/userActions";
 import { USER_EDIT_RESET } from "../../redux/constants/userConstant";
 
 function EditUserScreen(props) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
-
   const userId = props.match.params.id;
+  const [formData, setFormData] = useState({
+    _id: userId,
+    name: "",
+    email: "",
+    isAdmin: false,
+  });
+  const { name, email, isAdmin } = formData;
+
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
 
@@ -32,14 +36,19 @@ function EditUserScreen(props) {
       props.history.push("/userlist");
     }
 
-    if (!user) {
+    if (!user || userId !== user._id) {
       dispatch(detailsUser(userId));
     } else {
-      setName(user.name);
-      setEmail(user.email);
-      setIsAdmin(user.isAdmin);
+      setFormData((prev) => {
+        return {
+          ...prev,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+        };
+      });
     }
-  }, [dispatch, successEdit, props.history, user, userId]);
+  }, [dispatch, successEdit, props.history, userId, user]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -50,8 +59,15 @@ function EditUserScreen(props) {
     ) {
       alert("no field to update");
     } else {
-      dispatch(editUser({ _id: userId, name, email, isAdmin }));
+      dispatch(editUser(formData));
     }
+  };
+
+  const checkBoxClick = () => {
+    setFormData({
+      ...formData,
+      isAdmin: !isAdmin,
+    });
   };
 
   const capitalize = (str) => {
@@ -88,18 +104,23 @@ function EditUserScreen(props) {
               <label htmlFor="name">User Name</label>
               <input
                 type="name"
-                id="name"
                 placeholder="User Name"
                 value={name}
-                onChange={(e) => setName(capitalize(e.target.value))}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: capitalize(e.target.value) })
+                }
               />
               <label htmlFor="email">Email Address</label>
               <input
                 type="email"
-                id="email"
                 placeholder="Email Address"
                 value={email}
-                onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    email: e.target.value.toLowerCase(),
+                  })
+                }
               />
 
               <div className="edituser_extra">
@@ -107,8 +128,9 @@ function EditUserScreen(props) {
                 <input
                   type="checkbox"
                   id="isAdmin"
-                  className="edituser_checkbox"
-                  onChange={() => setIsAdmin(!isAdmin)}
+                  className={`edituser_checkbox ${isAdmin ? "show" : ""}`}
+                  value={isAdmin}
+                  onClick={checkBoxClick}
                 />
               </div>
             </div>

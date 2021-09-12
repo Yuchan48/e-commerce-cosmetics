@@ -17,8 +17,18 @@ function LoginScreen(props) {
     ? props.location.search.split("=")[1]
     : "/";
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const { email, password } = formData;
+
+  const onChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]:
+        e.target.name === "email"
+          ? e.target.value.toLowerCase()
+          : e.target.value,
+    });
+  };
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo, loading, error } = userSignin;
@@ -27,7 +37,7 @@ function LoginScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signinUser(email, password));
+    dispatch(signinUser(formData));
   };
   useEffect(() => {
     if (userInfo) {
@@ -52,19 +62,21 @@ function LoginScreen(props) {
         <div className="login_inputs">
           <label htmlFor="email">Email Address</label>
           <input
-            type="email"
-            id="email"
+            type="text"
+            name="email"
+            value={email}
             placeholder="email address"
-            onChange={(e) => setEmail(e.target.value.toLowerCase())}
+            onChange={onChange}
             required
           />
           <label htmlFor="password">Password</label>
           <input
             type="password"
-            id="password"
+            name="password"
+            value={password}
             placeholder="password"
             autoComplete="off"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={onChange}
             required
           />
         </div>

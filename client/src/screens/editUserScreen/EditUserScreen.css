@@ -118,7 +118,7 @@
   background-color: #f4f4f4;
 }
 
-.edituser_checkbox:checked:after {
+.edituser_checkbox.show:after {
   content: "";
   display: block;
   width: 13px;

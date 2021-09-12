@@ -1,4 +1,3 @@
-import "./App.css";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -35,7 +34,7 @@ function App() {
   const [sideToggle, setSideToggle] = useState(false);
 
   return (
-    <Router className="App">
+    <Router>
       <Navbar click={() => setSideToggle(!sideToggle)} />
       <TopDrawer show={sideToggle} click={() => setSideToggle(false)} />
 

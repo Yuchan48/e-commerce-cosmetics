@@ -9,7 +9,7 @@ import ErrorMessage from "../../component/errorMessage/ErrorMessage";
 import { ORDER_DELETE_RESET } from "../../redux/constants/orderConstant";
 import { deleteOrder, listOrderAdmin } from "../../redux/actions/orderActions";
 
-function AllOrderScreen(props) {
+function AllOrderScreen() {
   const history = useHistory();
 
   const orderDelete = useSelector((state) => state.orderDelete);

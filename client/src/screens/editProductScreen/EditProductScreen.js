@@ -11,14 +11,29 @@ import {
 } from "../../redux/actions/ProductActions";
 
 function EditProductScreen(props) {
-  const [name, setName] = useState("");
-  const [subTitle, setSubTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [bestSeller, setBestSeller] = useState(false);
-  const [price, setPrice] = useState(0);
-  const [countInStock, setCountInStock] = useState(0);
-  const [imageUrl, setImageUrl] = useState("");
+  const productId = props.match.params.id;
+  const [productInfo, setProductInfo] = useState({
+    _id: productId,
+    name: "",
+    subTitle: "",
+    description: "",
+    category: "",
+    bestSeller: false,
+    price: 0,
+    countInStock: 0,
+    imageUrl: "",
+  });
+
+  const {
+    name,
+    subTitle,
+    description,
+    category,
+    bestSeller,
+    price,
+    countInStock,
+    imageUrl,
+  } = productInfo;
 
   const productDetail = useSelector((state) => state.productDetail);
   const { loading, product, error } = productDetail;
@@ -31,8 +46,6 @@ function EditProductScreen(props) {
   } = productUpdate;
   const dispatch = useDispatch();
 
-  const productId = props.match.params.id;
-
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: PRODUCT_UPDATE_RESET });
@@ -42,14 +55,19 @@ function EditProductScreen(props) {
       dispatch({ type: PRODUCT_UPDATE_RESET });
       dispatch(detailProduct(productId));
     } else {
-      setName(product.name);
-      setSubTitle(product.subTitle);
-      setDescription(product.description);
-      setPrice(product.price.toFixed(2));
-      setCountInStock(product.countInStock);
-      setCategory(product.setCategory);
-      setBestSeller(product.bestSeller);
-      setImageUrl(product.imageUrl);
+      setProductInfo((prev) => {
+        return {
+          ...prev,
+          name: product.name,
+          subTitle: product.subTitle,
+          description: product.description,
+          price: product.price.toFixed(2),
+          countInStock: product.countInStock,
+          category: product.category,
+          bestSeller: product.bestSeller,
+          imageUrl: product.imageUrl,
+        };
+      });
     }
   }, [dispatch, product, successUpdate, props.history, productId]);
 
@@ -62,19 +80,19 @@ function EditProductScreen(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(
-      updateProduct({
-        _id: productId,
-        name,
-        subTitle,
-        description,
-        price,
-        countInStock,
-        category,
-        bestSeller,
-        imageUrl,
-      })
-    );
+    dispatch(updateProduct(productInfo));
+  };
+
+  const onChange = (e) => {
+    setProductInfo({
+      ...productInfo,
+      [e.target.name]:
+        e.target.name === "name"
+          ? capitalize(e.target.value)
+          : e.target.name === "bestSeller"
+          ? !bestSeller
+          : e.target.value,
+    });
   };
 
   return (
@@ -103,7 +121,7 @@ function EditProductScreen(props) {
                   id="name"
                   maxLength="20"
                   value={name}
-                  onChange={(e) => setName(capitalize(e.target.value))}
+                  onChange={onChange}
                   placeholder="Product Name"
                 />
               </div>
@@ -114,7 +132,7 @@ function EditProductScreen(props) {
                   id="subTitle"
                   maxLength="40"
                   value={subTitle}
-                  onChange={(e) => setSubTitle(e.target.value)}
+                  onChange={onChange}
                   placeholder="Subtitle"
                 />
               </div>
@@ -127,7 +145,7 @@ function EditProductScreen(props) {
                   placeholder="Description"
                   rows="3"
                   value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={onChange}
                 />
               </div>
             </div>
@@ -140,7 +158,7 @@ function EditProductScreen(props) {
                   id="price"
                   placeholder="Price"
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={onChange}
                 />
               </div>
               <div className="create_product_extra  create_small">
@@ -151,7 +169,7 @@ function EditProductScreen(props) {
                   placeholder="Product Count"
                   min="0"
                   value={countInStock}
-                  onChange={(e) => setCountInStock(e.target.value)}
+                  onChange={onChange}
                 />
               </div>
 
@@ -161,7 +179,7 @@ function EditProductScreen(props) {
                   name="category"
                   id="category"
                   value={category}
-                  onChange={(e) => setCategory(e.target.value)}
+                  onChange={onChange}
                 >
                   <option
                     value={
@@ -186,7 +204,7 @@ function EditProductScreen(props) {
                   id="bestSeller"
                   className="create_product_checkbox"
                   checked={bestSeller ? true : false}
-                  onChange={() => setBestSeller(!bestSeller)}
+                  onChange={onChange}
                 />
               </div>
               <div className="create_product_input_box">
@@ -196,7 +214,7 @@ function EditProductScreen(props) {
                   id="imageUrl"
                   placeholder="Link to the product image"
                   value={imageUrl}
-                  onChange={(e) => setImageUrl(e.target.value)}
+                  onChange={onChange}
                 />
                 {imageUrl && <img src={imageUrl} alt="img" />}
               </div>

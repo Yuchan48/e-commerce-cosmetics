@@ -5,6 +5,7 @@ const User = require("../models/User");
 const { generateToken, isAuth, isAdmin } = require("../util");
 const bcrypt = require("bcrypt");
 
+
 router.get("/", isAuth, isAdmin, async (req, res) => {
   try {
     const users = await User.find({});
@@ -15,15 +16,15 @@ router.get("/", isAuth, isAdmin, async (req, res) => {
 });
 
 router.post("/signin", async (req, res) => {
-  try {
-    const user = await User.findOne({ email: req.body.email });
-
-    if (bcrypt.compareSync(req.body.password, user.password)) {
+  try {  
+    const {email, password} = req.body.userData;
+    const user = await User.findOne({ email: email });
+    if (bcrypt.compareSync(password, user.password)) {
       res.send({
         _id: user._id,
         name: user.name,
         email: user.email,
-        isAdmin: user.isAdmin,
+        isAdmin: user.isAdmin,  
         token: generateToken(user),
       });
     } else {
@@ -36,15 +37,16 @@ router.post("/signin", async (req, res) => {
 });
 
 router.post("/register", async (req, res) => {
+  const {name, email, password} = req.body.userData;
   try {
     const user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 8),
+      name: name,
+      email: email,
+      password: bcrypt.hashSync(password, 8),
     });
     const createdUser = await user.save();
     res.send({
-      _id: createdUser._id,
+      _id: user._id,
       name: createdUser.name,
       email: createdUser.email,
       isAdmin: createdUser.isAdmin,
@@ -59,6 +61,7 @@ router.post("/register", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
+    console.log('user:', user)
     res.send(user);
   } catch (error) {
     console.error(error);
@@ -67,12 +70,14 @@ router.get("/:id", async (req, res) => {
 });
 
 router.put("/:id", isAuth, isAdmin, async (req, res) => {
+  const {name, email,isAdmin} = req.body.userData;
   try {
     const user = await User.findById(req.params.id);
-    user.name = req.body.name || user.name;
-    user.email = req.body.email || user.email;
-    user.isAdmin = Boolean(req.body.isAdmin);
+    user.name = name || user.name;
+    user.email = email || user.email;
+    user.isAdmin = Boolean(isAdmin);
     const updatedUser = user.save();
+    console.log('updatedUser:', updatedUser)
     res.send({ message: "Updated User", user: updatedUser });
   } catch (error) {
     res.status(500).send({ message: "couldn't Update User" });
@@ -96,17 +101,19 @@ router.delete("/:id", isAuth, isAdmin, async (req, res) => {
 router.put("/profile/update", isAuth, async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
-    if (bcrypt.compareSync(req.body.password, user.password)) {
-      user.name = req.body.name || user.name;
-      user.email = req.body.email || user.email;
+    console.log("req.body: ", req.body)
+    const { name, email, password, newpassword } = req.body;
+    if (bcrypt.compareSync(password, user.password)) {
+      user.name = name || user.name;
+      user.email = email || user.email;
 
-      if (req.body.newpassword) {
-        user.password = bcrypt.hashSync(req.body.newpassword, 8);
+      if (newpassword) {
+        user.password = bcrypt.hashSync(newpassword, 8);
       }
 
       const updatedUser = await user.save();
       res.send({
-        _id: updatedUser._id,
+        _id: user._id,
         name: updatedUser.name,
         email: updatedUser.email,
         isAdmin: updatedUser.isAdmin,

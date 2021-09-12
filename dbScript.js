@@ -1,4 +1,5 @@
-require("dotenv").config();
+// this file is used only until I set up Admin account to manage products
+/* require("dotenv").config();
 const productsInStock = require("./backend/data/productsInStock");
 const connectDB = require("./backend/models/db");
 const Product = require("./backend/models/Product");
@@ -21,7 +22,7 @@ const importData = async () => {
     process.exit(1);
   }
 };
-
+ */
 /*
 const importData = async () => {
   try {

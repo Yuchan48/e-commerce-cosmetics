@@ -16,6 +16,7 @@ function OrderHistoryScreen() {
   useEffect(() => {
     dispatch(listOrderUser());
   }, [dispatch]);
+
   return (
     <div className="order_history_screen_container">
       <div className="order_history_Bottom">
@@ -24,7 +25,11 @@ function OrderHistoryScreen() {
           <LoadingBox />
         ) : error ? (
           <ErrorMessage>{error}</ErrorMessage>
-        ) : orders.length === 0 ? <div className="order_history_empty">You don't have any order with us.</div> : (
+        ) : orders.length === 0 ? (
+          <div className="order_history_empty">
+            You don't have any order with us.
+          </div>
+        ) : (
           <table className="order_history_table">
             <thead>
               <tr>

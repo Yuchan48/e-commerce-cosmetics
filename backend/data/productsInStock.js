@@ -1,4 +1,5 @@
-const productsInStock = [
+// This file is used only until I set up admin account to manage products
+/* const productsInStock = [
   {
     name: "Face Cream",
     subTitle: "Rich Water Cream For All-Day Moisture",
@@ -134,3 +135,4 @@ const productsInStock = [
 ];
 
 module.exports = productsInStock;
+ */

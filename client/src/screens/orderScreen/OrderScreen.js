@@ -33,6 +33,7 @@ function OrderScreen(props) {
   const [paypalScript, setPaypalScript] = useState(false);
   const [stripeKey, setStripeKey] = useState("");
   const [stripePayFail, setStripePayFail] = useState(false);
+
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
 
